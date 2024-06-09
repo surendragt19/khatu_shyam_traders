@@ -15,7 +15,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:8000/api/contact', {
+      const { data } = await axios.post('/api/contact', {
         name,
         email,
         phone,

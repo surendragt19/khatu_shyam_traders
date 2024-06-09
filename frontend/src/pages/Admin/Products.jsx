@@ -12,7 +12,7 @@ const Products = () => {
     // Get all products
     const getAllProducts = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8000/product/getProduct");
+            const { data } = await axios.get("/product/getProduct");
             setProducts(data.products);
         } catch (error) {
             console.log(error);
@@ -39,7 +39,7 @@ const Products = () => {
                                 <Link to={`/dashboard/admin/product/${p.slug}`} className="product-link">
                                     <div className="card">
                                         <img
-                                            src={`http://localhost:8000/product/productPhoto/${p._id}`}
+                                            src={`/productPhoto/${p._id}`}
                                             className="card-img-top"
                                             alt={p.name}
                                         />

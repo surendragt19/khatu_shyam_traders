@@ -17,7 +17,7 @@ const location=useLocation()
     const handleSubmit=async(event)=>{
         event.preventDefault()
         try {
-            const response=await axios.post('http://localhost:8000/api/login',{
+            const response=await axios.post('/api/login',{
               email,password
             })
            if( response.data.success){

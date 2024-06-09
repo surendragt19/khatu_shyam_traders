@@ -21,7 +21,7 @@ const Create_Product = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/category/getCategory");
+      const { data } = await axios.get("/category/getCategory");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -47,7 +47,7 @@ const Create_Product = () => {
       productData.append("photo", photo);
       productData.append("category", category);
       const { data } = axios.post(
-        "http://localhost:8000/product/createProduct",
+        "/product/createProduct",
         productData
       );
       if (data?.success) {

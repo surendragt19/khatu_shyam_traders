@@ -21,7 +21,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/getSingleproduct/${params.slug}`
+        `/product/getSingleproduct/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/relatedProduct/${pid}/${cid}`
+        `/product/relatedProduct/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -48,7 +48,7 @@ const ProductDetails = () => {
       <div className="row ">
         <div className="col-md-6 p-4">
           <img
-            src={`http://localhost:8000/product/productPhoto/${product._id}`}
+            src={`/product/productPhoto/${product._id}`}
             className="card-img-top"
             alt={product.name}
             style={{ height: "300px", padding: "10px", borderRadius: "5px" }}
@@ -100,7 +100,7 @@ const ProductDetails = () => {
               <div className="card h-100">
                 <div style={{ width: '100%', height: '275px', overflow: 'hidden' }}>
                   <img
-                    src={`http://localhost:8000/product/productPhoto/${p._id}`}
+                    src={`/product/productPhoto/${p._id}`}
                     className="card-img-top p-3"
                     alt={p.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}

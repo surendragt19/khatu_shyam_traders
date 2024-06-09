@@ -24,7 +24,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/getSingleproduct/${params.slug}`
+        `/product/getSingleproduct/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -44,7 +44,7 @@ const UpdateProduct = () => {
   //get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/category/getCategory");
+      const { data } = await axios.get("/category/getCategory");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -70,7 +70,7 @@ const UpdateProduct = () => {
       photo && productData.append("photo", photo);
       productData.append("category", category);
       const { data } = await axios.put(
-        `http://localhost:8000/product/updateProduct/${id}`,
+        `/product/updateProduct/${id}`,
         productData
       );
       if (data?.success) {
@@ -91,7 +91,7 @@ const UpdateProduct = () => {
       let answer = window.prompt("Are You Sure want to delete this product?");
       if (!answer) return;
       const { data } = await axios.delete(
-        `http://localhost:8000/product/deleteProduct/${id}`
+        `/product/deleteProduct/${id}`
       );
       toast.success("Product Deleted Successfully");
       navigate("/dashboard/admin/products");
@@ -154,7 +154,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`http://localhost:8000/product/productPhoto/${id}`}
+                      src={`/product/productPhoto/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"

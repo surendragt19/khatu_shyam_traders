@@ -10,7 +10,7 @@ const SearchInput = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/product/search/${values.keyword}`
+        `/product/search/${values.keyword}`
       );
       console.log("URL being accessed:", "data");
       setValues({ ...values, results: data });

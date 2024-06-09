@@ -12,7 +12,7 @@ const Oders = () => {
   const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/api/orders");
+      const { data } = await axios.get("/api/orders");
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -61,7 +61,7 @@ const Oders = () => {
                       <div className="row mb-2 p-3 card flex-row" key={p._id}>
                         <div className="col-md-4">
                           <img
-                            src={`http://localhost:8000/product/productPhoto/${p._id}`}
+                            src={`/product/productPhoto/${p._id}`}
                             className="card-img-top"
                             alt={p.name}
                             width="100px"

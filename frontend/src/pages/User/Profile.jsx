@@ -29,7 +29,7 @@ const Profile = () => {
    const handleSubmit = async (e) => {
      e.preventDefault();
      try {
-       const { data } = await axios.put("http://localhost:8000/api/profile", {
+       const { data } = await axios.put("/api/profile", {
          name,
          email,
          password,

@@ -14,7 +14,7 @@ const navigate=useNavigate()
     const handleSubmit=async(event)=>{
         event.preventDefault()
         try {
-            const res=await axios.post('http://localhost:8000/api/forgetPasswd',{
+            const res=await axios.post('/api/forgetPasswd',{
                 email,
                 newPassword,
                 answer,

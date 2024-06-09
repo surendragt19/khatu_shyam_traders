@@ -7,7 +7,9 @@ import connectDb from './config/db.js';
 import authRoutes from './routes/authRoute.js'
 import caregoryRoute from './routes/categoryRoutes.js'
 import productRoute from './routes/productRoutes.js'
-
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
 //configure env
 dotenv.config();
 
@@ -28,9 +30,15 @@ app.use('/api',authRoutes)
 app.use('/category',caregoryRoute)
 app.use('/product',productRoute)
 
-app.get('/',(req,res)=>{
-    res.send("<h1>Hello Dots</h1>")
-})
+
+// Serve static files
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+});
 
 const port=process.env.PORT;
 app.listen(port,()=>{

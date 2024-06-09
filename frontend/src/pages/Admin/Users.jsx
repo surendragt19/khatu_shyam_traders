@@ -9,7 +9,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8000/api/allusers');
+        const { data } = await axios.get('/api/allusers');
         setUsers(data.users);
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -20,7 +20,7 @@ const Users = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      const { data } = await axios.put('http://localhost:8000/api/update-role', { userId, role: newRole });
+      const { data } = await axios.put('/api/update-role', { userId, role: newRole });
       setUsers(users.map(user => user._id === userId ? data.user : user));
     } catch (error) {
       console.error('Error updating user role:', error);

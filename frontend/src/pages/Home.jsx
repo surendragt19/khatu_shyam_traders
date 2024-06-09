@@ -22,7 +22,7 @@ const Home = () => {
   //get all cat
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/category/getCategory");
+      const { data } = await axios.get("/category/getCategory");
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -39,7 +39,7 @@ const Home = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`http://localhost:8000/product/productList/${page}`);
+      const { data } = await axios.get(`/product/productList/${page}`);
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -51,7 +51,7 @@ const Home = () => {
   //getTOtal COunt
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/product/productCount");
+      const { data } = await axios.get("/product/productCount");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -66,7 +66,7 @@ const Home = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`http://localhost:8000/product/productList/${page}`);
+      const { data } = await axios.get(`/product/productList/${page}`);
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -96,7 +96,7 @@ const Home = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("http://localhost:8000/product/productFilters", {
+      const { data } = await axios.post("/product/productFilters", {
         checked,
         radio,
       });
@@ -171,7 +171,7 @@ const Home = () => {
     <div className="homecard m-2 flex-grow-1" key={p._id} style={{minHeight:'360px' }}>
     <div style={{ width: '100%', height: '275px', overflow: 'hidden' }}>
     <img
-      src={`http://localhost:8000/product/productPhoto/${p._id}`}
+      src={`/product/productPhoto/${p._id}`}
       className="card-img-top p-3"
       alt={p.name}
       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
