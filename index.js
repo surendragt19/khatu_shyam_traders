@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 });
 
-const port=process.env.PORT;
+const port=process.env.PORT || 3000;
 app.listen(port,()=>{
     console.log(`Server Running on Port : ${port} on ${process.env.MODE} Mode`.bgMagenta.white)
 })
