@@ -39,7 +39,7 @@ const Products = () => {
                                 <Link to={`/dashboard/admin/product/${p.slug}`} className="product-link">
                                     <div className="card">
                                         <img
-                                            src={`/productPhoto/${p._id}`}
+                                            src={`/product/productPhoto/${p._id}`}
                                             className="card-img-top"
                                             alt={p.name}
                                         />
